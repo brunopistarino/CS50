@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create new page
+{% endblock %}
+
+{% block body %}
+    <form method="POST"> {% csrf_token %}
+        <h1>Create new page</h1>
+        <h3 style="font-weight:normal;">Title</h3>
+        <input type="text" class="form-control me-2" name="title" placeholder="Title of the page" value="{{ title }}" style="width: 80%;"><br>
+        {% if error %}
+            <div class="alert alert-danger" role="alert" style="display: inline-block;">{{ error }}</div>
+        {% endif %}
+        <h3 style="font-weight:normal;">Content</h3>
+        <textarea name="content" class="form-control me-2" placeholder="Write the page content in markdown" style="width: 80%; height: 580px;">{{ content }}</textarea><br>
+        <button type="submit" class="btn btn-outline-primary" value="save" name="save">Save page</button>
+    </form>
+{% endblock %}

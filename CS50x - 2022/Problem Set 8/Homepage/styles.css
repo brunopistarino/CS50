@@ -1,0 +1,72 @@
+nav {
+    backdrop-filter: grayscale(40%);
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: padding .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+nav.top {
+    padding: 2rem;
+}
+
+main {
+    margin-top: 1.3rem;
+}
+
+.gallery {
+    margin: 0 auto !important;
+}
+
+.gallery:nth-of-type(1) {
+    margin-top: 8rem !important;
+}
+
+.carousel img {
+    max-height: 450px !important;
+    object-fit: cover;
+}
+
+.about .img, .about .text {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.about img {
+    width: 60%;
+}
+
+.about .text {
+    place-content: center;
+}
+
+main.contact {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.contact .form-cont {
+    padding: 2rem;
+    box-shadow: 0 0 5px 1px rgb(202, 202, 202);
+}
+
+#submit {
+    margin-top: 1rem;
+}
+
+@media (max-width: 575px) {
+    .about .img {
+        min-height: initial;
+        margin-top: 7rem;
+    }
+
+    .about .text {
+        min-height: initial;
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .contact .form-cont {
+        box-shadow: none;
+    }
+}

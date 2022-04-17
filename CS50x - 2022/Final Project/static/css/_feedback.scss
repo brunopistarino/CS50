@@ -1,0 +1,19 @@
+.card {
+    border: 3px solid transparent;
+    &:hover {
+        border-color: rgb(121, 188, 233);
+    }
+}
+
+.head:hover .trash, .card:hover .trash {
+    display: block !important;
+}
+
+.trash {
+    transition: filter, .3s ease;
+    filter: invert(31%) sepia(0%) saturate(4446%) hue-rotate(206deg) brightness(89%) contrast(76%);
+        &:hover {
+        filter: invert(15%) sepia(54%) saturate(7492%) hue-rotate(357deg) brightness(106%) contrast(122%);
+        background-color: rgba(255, 110, 110, 0.2);
+    }
+}

@@ -1,0 +1,27 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+    <div id="create-view">
+        <div id="create-container">
+            <p class="post-name">{{ user.username }}</p>
+            <i id="create-close" class="fas fa-times clickeable"></i>
+            <form id="create-form">
+                <textarea id="create-content" cols="30" rows="10" placeholder="What are you thinking?"></textarea>
+                <button id="create-button" type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="profile-view">
+    </div>
+
+    <div id="posts-view">
+    </div>
+
+    <nav id="pagination-view">
+        <ul id="pagination-container" class="pagination justify-content-center">
+        </ul>
+    </nav>
+
+{% endblock %}

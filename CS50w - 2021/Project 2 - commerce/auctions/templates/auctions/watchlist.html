@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Auctions | Watchlist{% endblock %}
+
+{% block body %}
+    <h1 class="general_title">Watchlist <span id="lis_comments_title">({{wlq}})</span></h1>
+    {% include "auctions/articles.html" %}
+    {% if not listings %}
+        <div class="empty">
+            <h1 class="empty_title">Your watchlist is empty</h1>
+            <a class="empty_link" href="{% url 'index' %}">Go to listings</a>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,1 @@
+SELECT AVG(rating) FROM movies, ratings WHERE movie_id = id AND year = 2012;

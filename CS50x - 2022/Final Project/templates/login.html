@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}Linkee - Login{% endblock %}
+
+{% block body %}
+<div id="login">
+    <div class="left">
+        <div>
+            <p class="title">Welcome to Linkee!🔥</p>
+            <p class="description">The place where you can store all your important links that you use every day.</p>
+            <p class="features">🚀 All in one single place</p>
+            <p class="features">💫 Browse the web with fewer clicks</p>
+            <p class="features">💾 Never miss an important page</p>
+            <img src="../static/hero.png">
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="formContainer">
+            <form action="/login" method="post" id="loginForm">
+                <h2>Sign in</h2>
+                <p>New user? <span class="toCreate">Create an account</span></p>
+                {% if errorL %}<p class="error">🛈 {{errorL}}</p>{% endif %}
+                <div class="input input100">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" name="email" id="loginEmail" autofocus required placeholder="email@example.com">
+                </div>
+                <div class="input input100">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" name="password" id="loginPassword" required placeholder="password123">
+                </div>
+                <div class="input button">
+                    <input type="submit" value="Sign in">
+                </div>
+            </form>
+    
+            <form action="/register" method="post" id="registerForm" style="display: none;">
+                <h2>Create an account</h2>
+                <p>Already have an account? <span class="toSignin">Sign in</span></p>
+                {% if errorR %}<p class="error">🛈 {{errorR}}</p>{% endif %}
+                <div class="input input50">
+                    <label for="registerFirstName">First name</label>
+                    <input type="text" name="firstName" id="registerFirstName" required placeholder="e.g: John">
+                </div>
+                <div class="input input50">
+                    <label for="registerLastName">Last name</label>
+                    <input type="text" name="lastName" id="registerLastName" required placeholder="e.g: Smith">
+                </div>
+                <div class="input input100">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" name="email" id="registerEmail" required placeholder="email@example.com">
+                </div>
+                <div class="input input100">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" name="password" id="registerPassword" required placeholder="password123">
+                </div>
+                <div class="input input100">
+                    <label for="registerConfirmation">Confirm password</label>
+                    <input type="password" name="confirmation" id="registerConfirmation" required placeholder="password123">
+                </div>
+                <div class="input button">
+                    <input type="submit" value="Create account">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/login.js"></script>
+{% endblock %}

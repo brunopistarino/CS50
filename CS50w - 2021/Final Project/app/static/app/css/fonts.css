@@ -1,0 +1,62 @@
+/* Fonts */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+html {
+    font-size: 16px;
+}
+
+.main-title {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.second-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.third-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.text-medium {
+    font-size: 14px;
+    font-weight: 400;
+    color: #707070;
+}
+.day.label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.landing-tilte {
+    font-size: 4rem;
+    font-weight: 600;
+    color: #333;
+}
+.landing-p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color:#666;
+}
+.grid-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+}
+.grid-p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color:#666;
+}
+.alert {
+    color: red;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transform: translateY(-9px);
+    display: none;
+}
+.register-alert {
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transform: translateY(-35px);
+}

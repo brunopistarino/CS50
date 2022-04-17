@@ -1,0 +1,56 @@
+{% extends 'app/landing/basic-layout.html' %}
+{% load static %}
+
+{% block body %}
+
+    <header>
+        <img class="logo" src="{% static 'app/resources/logo.svg'%}">
+        <nav class="navbar">
+            <a class="features clickeable">Features</a>
+            <a href="{% url 'register-login' %}">Login / Register</a>
+        </nav>
+    </header>
+    
+    <section class="home" id="home">
+        <div class="content">
+            <p class="landing-tilte">Organization App for work teams</p>
+            <p class="landing-p">One tool for your whole team. Create workgroups, chat and assign tasks.</p>
+            <a href="{% url 'register-login' %}" class="btn">Start now</a>
+        </div>
+        <div class="image">
+            <img src="{% static 'app/resources/landing.png' %}" alt="">
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <p class="heading landing-tilte">Features</p>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-globe-americas"></i>
+                <p class="grid-title">Connectivity</p>
+                <p class="grid-p">Work no matter where you are.</p>
+            </div>
+        
+            <div class="box">
+                <i class="fas fa-comments"></i>
+                <p class="grid-title">Communication</p>
+                <p class="grid-p">Stay in touch with all project members.</p>
+            </div>
+        
+            <div class="box">
+                <i class="fas fa-sitemap"></i>
+                <p class="grid-title">Organization</p>
+                <p class="grid-p">Keep track of your tasks for the day.</p>
+            </div>
+        
+            <div class="box">
+                <i class="fas fa-cogs"></i>
+                <p class="grid-title">Effectiveness</p>
+                <p class="grid-p">Avoid misunderstandings in assigned tasks.</p>
+            </div>
+        </div>
+    </section>
+    
+    <script src="{% static 'app/javascript/landing-script.js' %}"></script>
+
+{% endblock  %}

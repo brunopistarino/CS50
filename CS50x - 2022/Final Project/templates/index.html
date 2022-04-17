@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}Linkee - My links{% endblock %}
+
+{% block body %}
+<div id="app">
+    <nav>
+        <div class="top">
+            <img src="../static/icon/logo.svg" alt="" srcset="" onclick="loadEmpty()">
+            <hr>
+        </div>
+        <div class="mid">
+            <span id="section-container"></span>
+            <div onclick="showModal(sectionPOST)">+</div>
+        </div>
+        <div class="bot">
+            <hr>
+            <div class="quit"><a href="/logout"><img src="../static/icon/logout.svg" alt="X"></a></div>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="head">
+            <h1 class="mainTitle"><span class="emoji"></span></h1>
+            <img class="trash" id="sectionDELETE" src="../static/icon/trash.svg">
+        </section>
+
+        <section class="card-container"></section>
+
+        <div class="placeholder" style="display: none;">
+            <img src="../static/icon/logo.svg">
+        </div>
+    </main>
+</div>
+
+<div id="modal">
+    <div class="modalContent">
+        <form action="/card" method="post" id="cardPOST">
+            <div class="example-card-container">
+                <div class="example-card">
+                    <img class="example-img">
+                    <p class="example-text"></p>
+                </div>
+            </div>
+            <div class="input input50">
+                <label for="cardName">Card name</label>
+                <input type="text" name="cardName" id="cardName" class="clear" required placeholder="e.g: GitHub" autocomplete="off">
+            </div>
+            <div class="input input50">
+                <label for="link">Link to website</label>
+                <input type="text" name="link" id="link" class="clear" required placeholder="https://example.com" autocomplete="off">
+            </div>
+            <div class="input">
+                <input type="submit" value="Create Card">
+                <button type="button" onclick="hideModal()">Cancel</button>
+            </div>
+        </form>
+        
+        <form action="/section" method="post" id="sectionPOST">
+            <div class="emoji-section">
+                <div class="inputEmoji">
+                    <input type="text" name="emoji" id="emoji" readonly value="❔">
+                </div>
+                <div class="inputName">
+                    <label for="sectionName">Section name</label>
+                    <input type="text" name="sectionName" id="sectionName" class="clear" autocomplete="off" required placeholder="e.g: Learning sites">
+                </div>
+            </div>
+            <div class="emoji-select-container"></div>
+            <div class="input">
+                <input type="submit" value="Create Section">
+                <button type="button" onclick="hideModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<input type="hidden" id="section-id" value="">
+<script src="../static/js/helpers.js"></script>
+<script src="../static/js/script.js"></script>
+{% endblock %}

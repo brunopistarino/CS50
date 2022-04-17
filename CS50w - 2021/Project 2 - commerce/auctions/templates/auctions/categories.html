@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Auctions | Categories{% endblock %}
+
+{% block body %}
+    <h1 class="general_title">Categories</h1>
+    <form action="{% url 'categories' %}" method="post"> {% csrf_token %}
+        <div id="category_c">
+                {% for category in categories %}
+                    <div class="category" {% if selected == category.id %} id="selected" {% endif %}>
+                        <button id="category_button" class="lis_product_description" value="{{category.id}}" name="category" type="submit">{{category.category}}</button>
+                    </div>
+                {% endfor %}
+        </div>
+    </form>
+    {% include "auctions/articles.html" %}
+    {% if selected != 0 %}
+        {% if not listings %}
+            <div class="empty">
+                <h1 class="empty_title">There are no listings in this category</h1>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                <form id="f1">
+                    <button>6 people per 1 sheep</button>
+                    <button>3 people per 1 sheep</button>
+                    <button>1 person per 1 sheep</button>
+                    <button>1 person per 3 sheep</button>
+                    <button>1 person per 6 sheep</button>
+                </form>
+                <p id="t1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <form id="f2">
+                    <input name="answer" type="text">
+                    <button>Check Answer</button>
+                </form>
+                <p id="t2"></p>
+            </div>
+        </div>
+
+        <script>
+            // TODO: Add code to check answers to questions
+            const form1 = document.querySelector('#f1');
+            const form2 = document.querySelector('#f2');
+            const t1 = document.querySelector('#t1');
+            const t2 = document.querySelector('#t2');
+
+            form1.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let btn = document.activeElement;
+
+                if (btn.innerText === "1 person per 6 sheep") {
+                    btn.style.backgroundColor = "green";
+                    t1.innerText = "Correct!";
+                } else {
+                    btn.style.backgroundColor = "red";
+                    t1.innerText = "Incorrect";
+                }
+            });
+
+            form2.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let input = form2.elements.answer;
+
+                if (input.value === "Switzerland") {
+                    input.style.backgroundColor = "green";
+                    t2.innerText = "Correct!";
+                } else {
+                    input.style.backgroundColor = "red";
+                    t2.innerText = "Incorrect";
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Auctions | {{listing.title}}{% endblock %}
+
+{% block body %}
+    <div id="lis">
+        <div id="lis_product">
+            <div id="lis_product_image">
+                <img id="lis_product_image_img" src="{{ listing.image }}">
+            </div>
+            <div id="lis_product_content">
+                <div id="lis_product_title">
+                    <p>{{ listing.title }}</p>
+                </div>
+                <div class="lis_product_description">
+                    <p>{{ listing.description }}</p>
+                </div>
+                <div id="details">
+                    <div id="lis_product_price">
+                        <p class="lis_product_description">Start price $ {% if listing.current_price %}<span style="text-decoration: line-through;">{% endif %}{{ listing.starting_bid }}</span></p>
+                        {% if listing.current_price %}
+                            <p class="lis_product_description" style="margin-left: 20px;">Current bid $ {{ listing.current_price }}</p>
+                        {% endif %}
+                    </div>
+                    {% if not logged %}
+                    <div>
+                        <p id="lis_product_price" class="lis_product_description" style="color: red;">Log in for place bids and post comments</p>
+                    </div>
+                    {% endif %}
+                    {% if listing.closed %}
+                        <div>
+                            <p id="lis_product_price" class="lis_product_description" style="color: red;">Closed</p>
+                            {% if winner %}
+                                <p id="lis_product_price" class="lis_product_description"  style="color: green;">You won the auction</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <div id="lis_product_details">
+                        <div>
+                            {% if logged %}
+                                <form method="post"> {% csrf_token %}
+                                    {% if added %}
+                                        <button type="submit" class="btn btn-outline-secondary width" name="removewatchlist">Remove from watchlist</button>
+                                    {% else %}
+                                        <button type="submit" class="btn btn-secondary width" name="addwatchlist">Add to watchlist</button>
+                                    {% endif %}
+                                </form>
+                            {% endif %}
+                        </div>
+                        {% if logged %}
+                            {% if not listing.closed %}
+                                <form method="post"> {% csrf_token %}
+                                    <div class="input-group mb-3">
+                                        <input type="number" min="0.00" step="0.01" name="place_bid" class="form-control" placeholder="Amount of the bid" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="submit" style="border-radius: 0px 4px 4px 0px;" id="button-addon2">Place bid</button>
+                                    </div>
+                                </form>
+                                {% if current_bid_error %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <p>The bid must be higher than the current bid</p>
+                                    </div>
+                                {% endif %}
+                                {% if starting_bid_error %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <p>The bid must be equal to or higher than the start price</p>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        <div>
+                            {% if owner %}
+                                {% if not listing.closed %}
+                                    <form method="post"> {% csrf_token %}
+                                        <button class="btn btn-danger width" type="submit" name="close">Close listing</button>
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="lis_product_details">
+                            <p class="lis_product_details_data">Listed by {{ listing.user }}</p>
+                            <p class="lis_product_details_data">Category {{ listing.category }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="lis_comments">
+            <p id="lis_comments_title">Comments</p>
+            {% if logged %}
+                {% if not listing.closed %}
+                    <form method="post"> {% csrf_token %}
+                        <label id="lis_comments_subtitle">Have a comment?</label>
+                        <div class="input-group mb-3">
+                            <input type="text" name="comment" class="form-control" placeholder="Write a comment" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="submit" style="border-radius: 0px 4px 4px 0px;" id="button-addon2">Post comment</button>
+                        </div>
+                    <form>
+                {% endif %}
+            {% endif %}
+            <p id="lis_comments_subtitle">Recent comments</p>
+            {% for comment in comments %}
+            <div id="lis_comments_comment">
+                <p id="lis_user">{{ comment.user }}</p>
+                <p id="lis_user_comment">{{ comment.comment }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

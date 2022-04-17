@@ -1,0 +1,21 @@
+{% for listing in listings %}
+    <div id="art" onclick="window.location='{% url 'listing' listing.id %}'">
+        <div id="art_image">
+            <img id="art_image_img" src="{{ listing.image }}">
+        </div>
+        <div id="art_content">
+            <div id="art_content_title">
+                <p>{{ listing.title }}</p>
+            </div>
+            <div id="art_content_price">
+                <p>$ {% if listing.current_price %} {{ listing.current_price }} {% else %} {{ listing.starting_bid }} {% endif %}</p>
+            </div>
+            <div id="art_content_description">
+                <p>{{ listing.description }}</p>
+            </div>
+            <div>
+                <span class="badge bg-light text-dark">{{ listing.category }}</span>
+            </div>
+        </div>
+    </div>
+{% endfor %}

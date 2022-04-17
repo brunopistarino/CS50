@@ -1,0 +1,746 @@
+/* Reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Hide scrollbars */
+#projects-container::-webkit-scrollbar, #chats-container::-webkit-scrollbar, #project-tasks-container-tasks::-webkit-scrollbar, #project-members-section::-webkit-scrollbar, .tasks-container::-webkit-scrollbar, .content::-webkit-scrollbar {
+    display: none;
+}
+
+/* General */
+:root {
+    --container-border: 10px;
+    --color-gray: #A9A9A9;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+.third-title {
+    margin-bottom: 5px;
+}
+.stop-scrolling {
+    overflow-y: hidden !important;
+}
+.clickeable, .dropdown-item {
+    cursor: pointer;
+}
+.container {
+    background: white;
+    border-radius: 15px;
+    flex: 1 1;
+    padding: 15px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+#main-view {
+    z-index: 2;
+}
+.body {
+    width: 90%;
+    height: 85vh;
+    margin: auto;
+    position: relative;
+    display: flex;
+    z-index: 1;
+}
+.content {
+    overflow: auto;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+#main-view, #project-view {
+    height: 100%;
+}
+.top-text {
+    padding: 20px 0px 0px 20px;
+}
+#profile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px 10px 0px 0px;
+}
+
+/* Background */
+#background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+#background-color {
+    transform: rotate(180deg);
+}
+#circle1 {
+    clip-path: circle(30% at left 20%);
+    opacity: 0.4;
+}
+#circle2 {
+    clip-path: circle(25% at right 80%);
+    opacity: 0.4;
+}
+#background-color, #circle1, #circle2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+/* background colors */
+.bg-color0 #background-color, .bg-color0 #circle1, .bg-color0 #circle2, .project-container-card.bg-color0, .color-select.bg-color0 {
+    background-image: linear-gradient( 135deg, #f5f7fa 10%, #b8c6db 100%);
+}
+.bg-color1 #background-color, .bg-color1 #circle1, .bg-color1 #circle2, .project-container-card.bg-color1, .color-select.bg-color1 {
+    background-image: linear-gradient( 135deg, #F9BF66 10%, #F95C81 100%);
+}
+.bg-color2 #background-color, .bg-color2 #circle1, .bg-color2 #circle2, .project-container-card.bg-color2, .color-select.bg-color2 {
+    background-image: linear-gradient( 135deg, #FF839D 10%, #F50B9A 100%);
+}
+.bg-color3 #background-color, .bg-color3 #circle1, .bg-color3 #circle2, .project-container-card.bg-color3, .color-select.bg-color3 {
+    background-image: linear-gradient( 135deg, #F387BB 10%, #A254F2 100%);
+}
+.bg-color4 #background-color, .bg-color4 #circle1, .bg-color4 #circle2, .project-container-card.bg-color4, .color-select.bg-color4 {
+    background-image: linear-gradient( 135deg, #77EFD2 10%, #45BAF2 100%);
+}
+.bg-color5 #background-color, .bg-color5 #circle1, .bg-color5 #circle2, .project-container-card.bg-color5, .color-select.bg-color5 {
+    background-image: linear-gradient( 135deg, #E7EE9D 10%, #5BF2B9 100%);
+}
+
+/* Main view */
+#main-view #middle {
+    padding-top: 20px;
+}
+#main-view #bottom {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 2;
+    padding: 20px var(--container-border) var(--container-border) var(--container-border);
+}
+#calendar-view, #tasks-view {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px var(--container-border) var(--container-border) var(--container-border);
+}
+#tasks-view {
+    height: calc(100vh - 15vh - 364px);
+    min-height: 442.8px;
+}
+
+/* Projects cards */
+.project-title {
+    margin-left: 20px;
+}
+#projects-container {
+    display: flex;
+    width: 100%;
+    overflow: auto;
+}
+.project-container-card, .project-container-card-create {
+    background: white;
+    min-width: 350px;
+    height: 200px;
+    border-radius: 15px;
+    position: relative;
+    padding: 15px;
+    margin: 0px 10px 0px 10px;
+}
+.project-container-card:first-child {
+    margin-left: 20px;
+}
+.project-container-card-create:after {
+    content: "";
+    width: 20px;
+    height: 1px;
+    position: absolute;
+    left: 100%;
+    top: 0px;
+}
+.project-container-card-create {
+    background: rgba(255, 255, 255, 0.3);
+    display: grid;
+    place-items: center;
+}
+.project-members {
+    display: flex;
+    padding-bottom: 15px;
+    position: absolute;
+    bottom: 0;
+}
+.project-members-extra-number {
+    width: 45px;
+    height: 25px;
+    margin: auto 0px auto 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 10;
+}
+#create-project-button:hover:before {
+    content:"New Project";
+}
+#create-project-button {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: none;
+    border-radius: 15px;
+    transition-duration: 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#create-project-button:hover {
+    width: 320px;
+    height: 170px;
+}
+#create-project-button:hover span {
+    display:none
+}
+#create-project-colors {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 15px 10% 5px 10%;
+}
+.color-select {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Tasks */
+.tasks-container {
+    overflow: auto;
+}
+.task-list-item, .task-list-item-complete {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+#tasks-list-container {
+    margin-top: 15px;
+}
+.task-list-item .task-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid rgb(138, 138, 138);
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+.task-list-item .task-title, .task-list-item-complete .task-title {
+    margin-bottom: 0px;
+}
+.task-list-item-complete .task-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-gray);
+    margin-right: 8px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+.task-list-item-complete .task-check:before {
+    font-family: FontAwesome;
+    font-size: 14px;
+    content:"\f00c";
+    color: white;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.task-list-item-complete .task-title {
+    color: var(--color-gray);
+}
+.task-late {
+    color: red;
+}
+
+/* Project view */
+#back-main-button, #back-main-button2 {
+    border: solid 1px white;
+    color: white;
+    background: none;
+    border-radius: 5px;
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+#back-main-button:hover, #back-main-button2:hover {
+    background: white;
+    color: black;
+}
+#project-view .top-text {
+    display: flex;
+}
+#project-members-container {
+    margin: 20px 20px 0px 20px;
+}
+#project-members-section {
+    display: flex;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    overflow-y: auto;
+}
+.pfp-div {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    margin-right: 10px;
+}
+#project-members-section .pfp-div {
+    margin: 10px 5px 10px 5px;
+}
+#project-members-section .pfp-div:first-child {
+    margin-left: 10px;
+}
+#project-view #middle {
+    display: flex;
+    flex: 2;
+    padding: var(--container-border);
+}
+#project-tasks {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    margin: var(--container-border);
+}
+#project-tasks-container {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 15vh - 253.5px);
+    min-height: 416.2px;
+}
+#project-tasks-container-tasks {
+    overflow: auto;
+}
+#project-tasks-container-button {
+    margin-top: auto;
+}
+#project-create-task {
+    width: 100%;
+    height: 50px;
+    border-radius: var(--container-border);
+    border: none;
+}
+#project-calendar {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    margin: var(--container-border);
+}
+#project-chat {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    margin: var(--container-border);
+}
+#send-chat-container {
+    background: #EFEFEF;
+    border-radius: var(--container-border);
+    height: 50px;
+}
+#send-chat-input {
+    height: 50px;
+    width: calc(100% - 50px);
+    border-radius: var(--container-border);
+    border: none;
+    background: none;
+    padding-left: 15px;
+    font-size: 1rem;
+    transform: translateY(-3px);
+    outline: none;
+}
+#send-chat-button {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--container-border);
+    border: none;
+}
+.fa-paper-plane {
+    font-size: 1.5rem;
+}
+
+/* Chat */
+#project-chat-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    max-height: calc(100vh - 15vh - 253.5px);
+    min-height: 416.2px;
+}
+#chats-container {
+    overflow: auto;
+}
+.chat-right, .chat-left {
+    display: flex;
+}
+.chat-right {
+    justify-content: flex-end;
+}
+.chat-profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+.chat-right .chat-profile-img {
+    order: 3;
+    margin-left: 10px;
+}
+.chat-left .chat-profile-img {
+    order: -1;
+    margin-right: 10px;
+}
+.chat-and-timestamp {
+    flex-direction: column;
+}
+.chat-message {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    max-width: 270px;
+}
+.chat-timestamp {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+.chat-right .chat-timestamp {
+    display: flex;
+    justify-content: flex-end;
+}
+.chat-left .chat-message {
+    border-radius: 10px 10px 10px 0px;
+}
+.chat-right .chat-message {
+    border-radius: 10px 10px 0px 10px;
+    background: #1A233B;
+    color: white;
+}
+
+/* Popup */
+#popup-close {
+    float: right;
+    font-size: 20px;
+    margin: 20px 20px 0px 0px;
+}
+#popup-view {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 15;
+    display: grid;
+    place-items: center;
+
+    display: none;
+}
+#popup-container {
+    width: 600px;
+    height: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Popup form */
+#create-task-view, #create-project-view {
+    width: 100%;
+    height: 100%;
+}
+#create-task-form, #create-project-form, #edit-project-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+}
+.popup-title {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin: 20px 0px 10px 20px;
+}
+.form-label {
+    margin-bottom: 2px;
+}
+.form-input {
+    height: 36px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: solid 1px rgb(197, 197, 197);
+    outline: none;
+}
+.form-input:focus {
+    border: solid 2px #008AFF;
+}
+.form-input:focus::placeholder {
+    color: transparent;
+}
+#create-task-button, #create-project-form-button, #edit-project-form-button, #delete-project-button {
+    background: #1A73E8;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 80px;
+    height: 35px;
+    margin: 10px 0px 20px auto;
+}
+#edit-project-form-button {
+    width: 120px;
+    float: right;
+}
+#delete-project-button {
+    width: 120px;
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    transition: 0.2s;
+    margin: 10px auto 20px 0px;
+}
+#delete-project-button-div {
+    display: inline;
+}
+.color-select {
+    transition: 0.2s;
+}
+.color-select:hover {
+    transform: translateY(-10px);
+}
+.selected-color {
+    border: 5px solid rgb(182, 182, 182);
+}
+#create-project-members, #edit-project-members {
+    height: auto;
+}
+#edit-project-button {
+    font-size: 30px;
+    background: none;
+    height: 40px;
+    border: none;
+    color: white;
+}
+#edit-project-button-div {
+    margin-left: 20px;
+}
+
+/* Calendar */
+#project-calendar-container {
+    max-height: calc(100vh - 15vh - 253.5px);
+    min-height: 416.2px;
+    overflow: auto;
+}
+#calendar-top {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+#months, #years {
+    position: absolute;
+    background: white;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    border-radius: 5px;
+}
+#current-year {
+    margin-left: 10px;
+}
+.dropdown-item:hover {
+    font-weight: 600;
+}
+#days {
+    display: flexbox;
+}
+#project-calendar #days {
+    height: calc(100vh - 15vh - 328.5px);
+}
+#calendar #days {
+    height: calc(100vh - 15vh - 468px);
+}
+.day {
+    width: 13.28%;
+    height: calc(16.6% - 10px);
+    margin: 3px 0.5%;
+    padding: 3px 0.5%;
+    float: left;
+    text-align: center;
+    border-radius: 5px;
+    flex: 1 1;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.day:not(.label) {
+    min-height: 47px;
+}
+.current-day {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.day.label {
+    border: none;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 22px;
+}
+.day.blank {
+    border: none;
+}
+.clear {
+    clear: both;
+}
+.calendar-task-low, .calendar-task-medium, .calendar-task-high {
+    border-radius: 5px;
+    max-width: 85px;
+    margin: 0 auto;
+}
+.calendar-task-low {
+    background: #B0D8A4;
+    border: 1px solid #75be5f;
+}
+.calendar-task-medium {
+    background: #FEE191;
+    border: 1px solid #ffcc3f;
+}
+.calendar-task-high {
+    background: #FD8060;
+    border: 1px solid #ff4b1e;
+}
+
+/* Profile */
+#profile-view {
+    display: none;
+}
+#back-main-button2 {
+    margin: 20px 0px 0px 20px;
+}
+#profile-picture .pfp-div {
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+#logout-button {
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.2s;
+    margin-top: 40px;
+}
+#logout-button:hover, #delete-project-button:hover {
+    background: #dc3545;
+    color: white;
+}
+#logout-div, #profile-picture, #profile-container {
+    display: grid;
+    place-content: center;
+}
+#profile-container {
+    width: 100%;
+}
+.profile-item {
+    background: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 50vw;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+.profile-span {
+    position: absolute;
+    margin-left: 150px;
+}
+
+
+
+/* Media queries  */
+@media screen and (max-width: 600px) {
+    .body {
+        width: 100%;
+        height: 100vh;
+    }
+    .content {
+        border-radius: 0px;
+        border: none;
+    }
+    #popup-container {
+        width: calc(100% - 20px);
+    }
+    .profile-item {
+        width: 90vw;
+    }
+    #good-morning, #project-view-name {
+        max-width: 80%;
+    }
+    #project-view .top-text {
+        display: block;
+    }
+    #background {
+        height: calc(100% + 56px);
+        overflow-x: hidden;
+    }
+    .profile-span {
+        margin-left: 110px;
+    }
+    .pfp-div {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+    #edit-project-button {
+        position: absolute;
+        top: 20px;
+        left: 100px;
+    }
+    #project-view-name {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #project-view #middle {
+        flex-direction: column;
+    }
+    #project-calendar {
+        order: -1;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .body {
+        max-width: 1843px;
+        max-height: 886px;
+    }
+}

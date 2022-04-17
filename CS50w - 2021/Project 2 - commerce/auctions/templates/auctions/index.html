@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Auctions | Listings{% endblock %}
+
+{% block body %}
+    <h1 class="general_title">Active Listings <span id="lis_comments_title">({{lisq}})</span></h1>
+    {% include "auctions/articles.html" %}
+    {% if not listings %}
+        <div class="empty">
+            <h1 class="empty_title">At the moment there are no active listings</h1>
+            <a class="empty_link" href="{% url 'create' %}">Create a listing</a>
+        </div>
+    {% endif %}
+{% endblock %}

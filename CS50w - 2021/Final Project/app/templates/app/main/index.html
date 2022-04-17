@@ -1,0 +1,167 @@
+{% extends "app/main/layout.html" %}
+
+{% block body %}
+
+    <div id="popup-view">
+        <div id="popup-container">
+            <i id="popup-close" class="fas fa-times clickeable"></i>
+
+            <div id="create-task-view">
+                <p class="popup-title second-title">Create task</p>
+                <form id="create-task-form" autocomplete="off">
+                    <label class="form-label" for="create-task-title">Task name</label>
+                    <input class="form-input" type="text" id="create-task-title" placeholder="Write a description of the task">
+                    <p class="alert" id="create-task-name-alert"><i class="fas fa-info-circle"></i> The name can't be empty.</p>
+
+                    <label class="form-label" for="create-task-options">Member</label>
+                    <select class="form-input" id="create-task-options"></select>
+                    <p class="alert" id="create-task-member-alert"><i class="fas fa-info-circle"></i> Select a member.</p>
+
+                    <label class="form-label" for="create-task-date">Date</label>
+                    <input class="form-input" type="date" id="create-task-date">
+                    <p class="alert" id="create-task-date-alert"><i class="fas fa-info-circle"></i> Select a date.</p>
+
+                    <input type="submit" id="create-task-button" value="Create">
+                </form>
+            </div>
+
+            <div id="create-project-view">
+                <p class="popup-title second-title">Create project</p>
+                <form id="create-project-form"  autocomplete="off">
+                    <label class="form-label" for="create-project-name">Project name</label>
+                    <input class="form-input" type="text" id="create-project-name">
+                    <p class="alert" id="create-project-name-alert"><i class="fas fa-info-circle"></i> The name can't be empty.</p>
+
+                    <label class="form-label" for="create-project-members">Project members</label>
+                    <select class="form-input" id="create-project-members" multiple="multiple"></select>
+
+                    <label class="form-label" for="create-project-colors">Project color</label>
+                    <input type="text" style="display: none;" id="create-project-hide-color">
+                    <div id="create-project-colors">
+                        <div id="create-color-1" class="bg-color1 color-select"></div>
+                        <div id="create-color-2" class="bg-color2 color-select"></div>
+                        <div id="create-color-3" class="bg-color3 color-select"></div>
+                        <div id="create-color-4" class="bg-color4 color-select"></div>
+                        <div id="create-color-5" class="bg-color5 color-select"></div>
+                    </div>
+                    <p class="alert" id="create-project-color-alert"><i class="fas fa-info-circle"></i> Select a color.</p>
+
+                    <input type="submit" id="create-project-form-button" value="Create">
+                </form>
+            </div>
+
+            <div id="edit-project-view">
+                <p class="popup-title second-title">Edit project</p>
+                <form id="edit-project-form">
+                    <input type="text" style="display: none;" id="edit-project-id">
+                    <label class="form-label" for="edit-project-members">Project members</label>
+                    <select class="form-input" id="edit-project-members" multiple="multiple"></select>
+
+                    <div>
+                        <div id="delete-project-button-div"></div>
+                        <input type="submit" class="clickeable" id="edit-project-form-button" value="Save changes">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-view">
+        <div class="wrapper">
+            <div id="top">
+                <div class="top-text">
+                    <p class="main-title" id="good-morning"></p>
+                    <p class="text-medium" id="good-morning-tasks"></p>
+                </div>
+            </div>
+
+            <div id="middle">
+                <div id="projects-view">
+                    <p class="third-title project-title">Your projects</p>
+                    <div id="projects-container">
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom">
+                <div id="tasks-view">
+                    <p class="third-title">Tasks for today</p>
+                    <div class="tasks-container container">
+                        <p class="second-title" id="all-total-daily-tasks"></p>
+                        <p class="text-medium" id="all-completed-left-daily-tasks"></p>
+                        <div id="tasks-list-container">
+                        </div>
+                        <div id="completed-tasks-list-container">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="calendar-view">
+                    <p class="third-title">Calendar</p>
+                    <div class="calendar-container container" id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-view">
+        <div class="wrapper">
+            <div id="top">
+                <div class="top-text">
+                    <button id="back-main-button" class="clickeable">Back</button>
+                    <p class="main-title" id="project-view-name"></p>
+                    <div id="edit-project-button-div"></div>
+                </div>
+                <div id="project-members-container">
+                    <p class="third-title">Members</p> 
+                    <div id="project-members-section">
+                    </div>
+                </div>
+            </div>
+
+            <div id="middle">
+                <div id="project-tasks">
+                    <p class="third-title">Tasks</p> 
+                    <div id="project-tasks-container" class="container">
+
+                        <div id="project-tasks-container-tasks">
+                            <div id="project-tasks-container-tasks-container"></div>
+                            <div id="completed-project-tasks-container-tasks-container"></div>
+                        </div>
+                        <div id="project-tasks-container-button">
+                        </div>
+
+                    </div>
+                </div>
+                <div id="project-calendar">
+                    <p class="third-title">Calendar</p>
+                    <div id="project-calendar-container" class="container"></div>
+                </div>
+                <div id="project-chat">
+                    <p class="third-title">Chat</p>
+                    <div id="project-chat-container" class="container">
+                        <div id="chats-container">
+                        </div>
+                        <div id="send-chat-container">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-view">
+        <button id="back-main-button2" class="clickeable">Back</button>
+        <div id="profile-container">
+            <div id="profile-picture"></div>
+            <p class="profile-item">Username <span class="profile-span" id="profile-username"></span></p>
+            <p class="profile-item">First name <span class="profile-span" id="profile-first-name"></span></p>
+            <p class="profile-item">Last name <span class="profile-span" id="profile-last-name"></span></p>
+            <p class="profile-item">Email <span class="profile-span" id="profile-email"></span></p>
+            <div id="logout-div">
+                <a id="logout-button" href="{% url 'user_logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

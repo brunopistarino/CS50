@@ -1,0 +1,12 @@
+# Cache
+__pycache__/
+
+# Database
+*.sqlite3
+*.pyc
+
+# Migrations
+**/migrations/**
+
+# Visual Studio Code
+.vscode/

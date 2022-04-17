@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="icon" href="{% static 'network/index.js' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Social Network{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/f3bbcf10d0.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <img class="background" src="{% static 'network/backgrounds/background3.svg'%}">
+        <div id="login-register-body">
+            <div id="login-register-container">
+                <a id="login-register-back" href="{% url 'index' %}"><i class="fas fa-arrow-left"></i><span id="login-register-back-text">Back</span></a>
+                <div id="login-register-container-content">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

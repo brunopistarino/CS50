@@ -1,0 +1,45 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5rem;
+
+    .emoji {
+        font-size: 8rem;
+        padding-right: 1rem;
+    }
+}
+
+#login {
+    h2 {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    p {
+        span {
+            color: #1473e6;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.card, .example-card {
+    font-weight: 700;
+}
+
+#login {
+    .title {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .error {
+        color: red;
+        font-weight: 500;
+        margin-bottom: 0 !important;
+    }
+}

@@ -1,0 +1,728 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 5rem;
+}
+
+h1 .emoji {
+  font-size: 8rem;
+  padding-right: 1rem;
+}
+
+#login h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#login p span {
+  color: #1473e6;
+  cursor: pointer;
+}
+
+#login p span:hover {
+  text-decoration: underline;
+}
+
+.card, .example-card {
+  font-weight: 700;
+}
+
+#login .title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#login .error {
+  color: red;
+  font-weight: 500;
+  margin-bottom: 0 !important;
+}
+
+.card {
+  border: 3px solid transparent;
+}
+
+.card:hover {
+  border-color: #79bce9;
+}
+
+.head:hover .trash, .card:hover .trash {
+  display: block !important;
+}
+
+.trash {
+  -webkit-transition: .3s ease, -webkit-filter;
+  transition: .3s ease, -webkit-filter;
+  transition: filter, .3s ease;
+  transition: filter, .3s ease, -webkit-filter;
+  -webkit-filter: invert(31%) sepia(0%) saturate(4446%) hue-rotate(206deg) brightness(89%) contrast(76%);
+          filter: invert(31%) sepia(0%) saturate(4446%) hue-rotate(206deg) brightness(89%) contrast(76%);
+}
+
+.trash:hover {
+  -webkit-filter: invert(15%) sepia(54%) saturate(7492%) hue-rotate(357deg) brightness(106%) contrast(122%);
+          filter: invert(15%) sepia(54%) saturate(7492%) hue-rotate(357deg) brightness(106%) contrast(122%);
+  background-color: rgba(255, 110, 110, 0.2);
+}
+
+#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .top img {
+  width: 3.5rem;
+  margin: 2rem 0 1rem;
+}
+
+nav .mid {
+  overflow-x: auto;
+}
+
+nav .mid::-webkit-scrollbar {
+  display: none;
+}
+
+nav .mid div {
+  height: 4rem;
+  width: 4rem;
+  background-color: #F0F3F9;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  margin-top: 1rem;
+  border-radius: 100px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+nav .bot {
+  margin-top: auto;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+nav .bot hr {
+  margin-bottom: 1rem;
+}
+
+nav .bot div {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+
+nav hr {
+  width: 3.5rem;
+  height: 2px;
+  border: none;
+  background-color: #c7c7c7;
+}
+
+nav .quit {
+  border: 2px solid #c7c7c7;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  background-color: #F0F3F9;
+  overflow-y: auto;
+  border-radius: 1rem 0 0 1rem;
+}
+
+main .card-container {
+  margin: 0 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .card-container .card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 250px;
+          flex: 1 1 250px;
+  height: 180px;
+  position: relative;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 0.5rem;
+}
+
+main .card-container .card:empty {
+  height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  border: 0;
+}
+
+main .card-container .card a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .card-container .card .icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 2rem;
+}
+
+main .card-container .card p {
+  margin-top: 2.5rem;
+  text-align: center;
+  padding: 0 .6rem;
+}
+
+main .card-container .card .trash {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .5rem;
+  font-size: .8rem;
+  border-radius: 0 0.25rem 0 0.25rem;
+}
+
+main .card-container .add-card {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+main .card-container .add-card div {
+  background-color: #fff;
+  font-size: 3rem;
+  font-weight: 300;
+  width: 90px;
+  height: 90px;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  border-radius: 100px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+main .card-container .add-card:hover div {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+main .head {
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .head h1 {
+  margin-left: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+main .head h1 .emoji {
+  margin-right: .5rem;
+}
+
+main .head .trash {
+  display: none;
+  position: absolute;
+  top: 3.5rem;
+  right: 3.5rem;
+  font-size: 1rem;
+  padding: .8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+main .placeholder {
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+}
+
+main .placeholder img {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40rem;
+          flex: 0 1 40rem;
+  -webkit-filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(308deg) brightness(107%) contrast(101%);
+          filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(308deg) brightness(107%) contrast(101%);
+}
+
+main .placeholder p {
+  font-size: 4rem;
+  text-align: center;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  place-content: center;
+}
+
+#modal .modalContent {
+  background-color: #fefefe;
+  padding: 3rem;
+  width: 650px;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0px 15px 35px rgba(45, 55, 72, 0.25);
+          box-shadow: 0px 15px 35px rgba(45, 55, 72, 0.25);
+}
+
+#modal .modalContent .example-card {
+  max-width: 300px;
+  width: 100%;
+  height: 180px;
+  border: 1px solid #c7c7c7;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#modal .modalContent .example-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 3rem;
+}
+
+#modal .modalContent .example-card-container .example-img {
+  width: 50px;
+  height: 50px;
+  margin-top: 2rem;
+}
+
+#modal .modalContent .example-card-container .example-text {
+  margin-top: 2.5rem;
+  text-align: center;
+  padding: 0 .6rem;
+}
+
+#modal .emoji-select-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1.25rem;
+}
+
+#modal .emoji-select-container div {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#modal input[type=text] {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  margin-bottom: 1.25rem;
+}
+
+#modal input[type=submit], #modal button {
+  float: right;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+#modal button {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+#modal label {
+  display: block;
+  padding-bottom: .25rem;
+}
+
+#modal .emoji-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#modal .emoji-section #emoji {
+  text-align: center;
+  border: none;
+  font-size: 5rem;
+  width: 130px;
+  height: 100px;
+  padding: 0;
+  padding-right: 1rem;
+}
+
+#modal .emoji-section .inputName {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 100%;
+  margin-bottom: .7rem;
+}
+
+#login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  background-color: #F0F3F9;
+}
+
+#login .left, #login .right {
+  width: 50%;
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+#login .formContainer {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+#login .formContainer h2, #login .formContainer p {
+  width: 100%;
+}
+
+#login .formContainer p {
+  margin: 1rem 0 2rem 0;
+}
+
+#login form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#login .input {
+  margin-top: 1rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+#login .input input {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  margin-top: .25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+}
+
+#login .input.input100 {
+  width: 100%;
+}
+
+#login .input.input50 {
+  width: 50%;
+}
+
+#login .input.input50:nth-of-type(1) {
+  padding-right: .25rem;
+}
+
+#login .input.input50:nth-of-type(2) {
+  padding-left: .25rem;
+}
+
+#login .left div {
+  max-width: 600px;
+}
+
+#login .left .title {
+  margin-bottom: 1rem;
+}
+
+#login .left .description {
+  margin-bottom: 2rem;
+}
+
+#login .left .features {
+  margin: 0 0 .75rem .75rem;
+}
+
+#login .left img {
+  width: 100%;
+}
+
+input[type=submit] {
+  border: none;
+  margin-left: auto;
+  padding: 0.5rem 2rem;
+  background-color: #1473e6;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+}
+
+input[type=submit]:hover {
+  background-color: #0d66d0;
+}
+
+@media (max-width: 667px) {
+  #app hr {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    margin: 0;
+  }
+  #app nav {
+    bottom: 0;
+    position: fixed;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 120px;
+    background-color: #fff;
+    z-index: 1;
+    width: 100%;
+    overflow: auto;
+  }
+  #app nav .top, #app nav .mid, #app nav .bot, #app nav #section-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    overflow: visible;
+    margin: 0;
+  }
+  #app nav .mid div {
+    margin: 0 0 0 1rem;
+  }
+  #app nav img {
+    margin: 0 0 0 1.5rem;
+  }
+  #app nav .top {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #app nav #section-container div:first-child {
+    margin: 0;
+  }
+  #app nav .bot .quit {
+    margin: 0;
+    margin-right: 2rem;
+  }
+  #app nav .bot .quit img {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+  }
+  #app main, #app .placeholder {
+    height: calc(100vh - 120px);
+  }
+  #app .card-container {
+    margin: 0 1rem;
+  }
+  #app .card-container .card:empty {
+    padding-bottom: 10px;
+    background: none;
+  }
+  #app .head {
+    height: auto;
+    padding: 2rem 0 1rem;
+  }
+  #app h1 {
+    text-align: center;
+    display: block;
+    font-size: 4rem;
+    padding: 0 .5rem;
+    margin: 0;
+    width: 100%;
+    word-wrap: break-word;
+  }
+  #app h1 .emoji {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  #modal .modalContent {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  #modal .modalContent .example-card {
+    min-width: 300px;
+  }
+  #login {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #login .left, #login .right {
+    width: 100%;
+  }
+  #login .right {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+}
+
+@media (max-width: 350px) {
+  .example-card {
+    min-width: auto;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

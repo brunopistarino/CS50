@@ -1,0 +1,227 @@
+/*GENERAL*/
+a {
+    color: inherit;
+    text-decoration: none;
+    margin-right: 23px;
+}
+a:hover {
+    text-decoration: underline;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    margin: 0px auto;
+    display: flex;
+}
+
+/*PAGE TOP*/
+.toplink {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 13px;
+}
+#as {
+    margin-right: 8px;
+}
+/*advanced search page*/
+#googlem {
+    margin-top: -24px;
+    margin-left: 15px;
+}
+#top {
+    background: rgb(241,241,241);
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    margin: -8px;
+    top: 8px;
+}
+
+/*PAGE BOTTOM*/
+#bottom, #bottom2 {
+    background: rgb(242,242,242);
+    height: 81px;
+    width: 100%;
+    position: absolute;
+    margin: -8px;
+    bottom: 8px;
+    border-top: 1px solid rgb(223, 225, 229);
+}
+#bottom2 {
+    height: 40px;
+}
+#p1 {
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgb(112, 117, 122);
+}
+.aaa {
+    text-align: left;
+    margin-left: 38px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgb(112, 117, 122);
+}
+
+/*GOOGLE IMAGE*/
+.google {
+    margin-top: 163px;
+}
+
+/*SEARCH BARS*/
+/*google normal search & image search bars*/
+.searchbar {
+    height: 44px;
+    width: 450px;
+    display: flex;
+    margin: 0px auto;
+    margin-top: 21px;
+    border-radius: 24px;
+    border: 1px solid rgb(223, 225, 229);
+    outline: none;
+    padding-left: 20px;
+}
+.searchbar:hover, .searchbar:focus {
+    box-shadow: 0px 0.5px 6px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+/*google anvanced search bars*/
+#titlegas {
+    margin-top: 46px;
+    margin-left: 37px;
+    color: rgb(51, 51, 51);
+}
+#stitlegas {
+    margin-left: 640px;
+    font-size: 13px;
+    color: rgb(97, 97, 97);
+    font-weight: bold;
+}
+label {
+    display: inline-block;
+    margin-top: 30px;
+}
+#blab {
+    margin-top: 22px;
+}
+#lab1 {
+    display: inline-block;
+    margin-left: 37px;
+    font-size: 13px;
+}
+#srb {
+    display: inline-block;
+    margin-left: 29px;
+}
+#lab2 {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 11px;
+}
+.searchbara {
+    border-radius: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(192, 192, 192) rgb(217, 217, 217) rgb(217, 217, 217);
+    border-image: initial;
+    font-size: 13px;
+    height: 25px;
+    width: 570px;
+    padding: 1px 8px;
+    margin-top: 15px;
+    outline: none;
+}
+.searchbara:focus {
+    border: 1px solid rgb(61, 126, 255);
+    outline: none;
+}
+
+/*BUTTONS*/
+/*google normal search & image search buttons*/
+#b1, #b2, #b3 {
+    margin-top: 20px;
+    border: none;
+    background-color: rgb(248,249,250);
+    color: rgb(32, 33, 36);
+    outline: none;
+    font-size: 14px;
+    line-height: 27px;
+    border-radius: 5px;
+}
+.bu1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#b1 {
+    width: 128px;
+    height: 36px;
+    margin-right: 5px;
+}
+#b2 {
+    width: 143px;
+    height: 36px;
+    margin-left: 5px;
+}
+#b3 {
+    width: 100px;
+    height: 36px;
+}
+#b1:hover, #b2:hover, #b3:hover {
+    border: 1px solid rgb(223, 225, 229);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+#b1:focus, #b2:focus, #b3:focus {
+    border: 1px solid rgb(61, 126, 255);
+}
+/*google anvanced search button*/
+#b4 {
+    height: 30px;
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 697px;
+    margin-top: 20px;
+    height: 27px;
+    outline: 0px;
+    padding: 0px 8px;
+    box-shadow: none;
+    background-color: rgb(77, 144, 254);
+    border: 1px solid rgb(48, 121, 237);
+    color: rgb(255, 255, 255);
+    display: block;
+}
+#b4:hover {
+    background-color: rgb(57, 133, 255);
+    border: 1px solid rgb(32, 107, 226);
+}
+
+/*GOOGLE ADVANCED SEARCH PARAGRAPHS*/
+/*tittle*/
+#ads {
+    display: flex;
+    font-size: 20px;
+    color: #d93025;
+    margin-top: 85px;
+    margin-left: 45px;
+}
+#adsb {
+    border-bottom: 1px solid rgb(235,235,235);   
+    margin-top: 60px;
+    width: 100%;
+    height: 48px;
+    margin-left: -8px;
+}
+
+/*GOOGLE ADVANCED SEARCH PAGE RESIZE*/
+@media all and (max-width: 1170px) {
+    .lb { display: none; }
+    #stitlegas { display: none; }
+    #srb { width: 49.5%; }
+    .searchbara { width: 100%; }
+    #b4 { margin-left: 220px;}
+}

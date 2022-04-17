@@ -1,0 +1,73 @@
+{% extends 'app/landing/basic-layout.html' %}
+{% load static %}
+
+{% block body %}
+
+    <div class="register-login-body">
+        <div class="container">
+            <div class="register-view">
+                <form action="" method="POST" autocomplete="off"> {% csrf_token %}
+                    <p class="register-title">Register</p>
+                    {% if message %}
+                        <p class="register-alert" id="create-task-name-alert"><i class="fas fa-info-circle"></i> {{ message }}</p>
+                    {% endif %}
+                    <label for="register-username">Username</label>
+                    <input class="form-input" id="register-username" type="text" name="register_username" placeholder="Enter your username">
+
+                    <div class="two-inputs">
+                        <div class="first-input">
+                            <label for="register-first-name">First name</label>
+                            <input class="form-input" id="register-first-name" type="text" name="register_firstname" placeholder="Enter your first name">
+                        </div>
+
+                        <div class="second-input">
+                            <label for="register-last-name">Last name</label>
+                            <input class="form-input" id="register-last-name" type="text" name="register_lastname" placeholder="Enter your last name">
+                        </div>
+                    </div>
+
+                    <label for="register-email">Email address</label>
+                    <input class="form-input" id="register-email" type="email" name="register_email" placeholder="Enter your email address">
+
+                    <div class="two-inputs">
+                        <div class="first-input">
+                            <label for="register-password">Password</label>
+                            <input class="form-input" id="register-password" type="password" name="register_password" placeholder="Enter your password">
+                        </div>
+
+                        <div class="second-input">
+                            <label for="register-confirm-password">Confirm password</label>
+                            <input class="form-input" id="register-confirm-password" type="password" name="register_confirm" placeholder="Confirm your password">
+                        </div>
+                    </div>
+
+                    <input id="register-button" type="submit" name="register" value="Register">
+                </form>
+
+                <div class="text-change-view">
+                    <p>Already have an account? <span id="change-view-register">Sign in</span></p>
+                </div>
+            </div>
+
+            <div class="login-view">
+                <form action="" method="POST" autocomplete="off"> {% csrf_token %}
+                    <p class="login-title">Login</p>
+                    <label for="login-username">Username</label>
+                    <input class="form-input" id="login-username" type="text" name="login_username" placeholder="Enter your username">
+                    <label for="login-password">Password</label>
+                    <input class="form-input" id="login-password" type="password" name="login_password" placeholder="Enter your password">
+                    <input id="login-button" type="submit" name="login" value="Login">
+                </form>
+
+                <div class="text-change-view">
+                    <p>New user? <span id="change-view-login">Create an account</span></p>
+                </div>
+            </div>
+                    <img class="logo" src="{% static 'app/resources/logo.svg'%}">
+
+        </div>
+    </div>
+
+    <script src="{% static 'app/javascript/register-login-script.js' %}"></script>
+
+{% endblock  %}

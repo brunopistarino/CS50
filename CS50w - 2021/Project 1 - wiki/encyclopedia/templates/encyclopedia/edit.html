@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit page
+{% endblock %}
+
+{% block body %}
+    <form method="POST"> {% csrf_token %}
+        <h1>Edit page</h1>
+        <h3 style="font-weight:normal;">Title</h3>
+        <div class="alert alert-secondary" role="alert" style="width: 80%">{{ title }}</div>
+        <h3 style="font-weight:normal;">Content</h3>
+        <textarea name="content" class="form-control me-2" placeholder="Write the page content in markdown" style="width: 80%; height: 580px;">{{ content }}</textarea><br>
+        <button type="submit" class="btn btn-outline-primary" value="savechanges" name="savechanges">Save changes</button>
+    </form>
+{% endblock %}
